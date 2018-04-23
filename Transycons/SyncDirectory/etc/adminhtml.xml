@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>
+    <!-- we are defining a new admin panel menu item -->
+    <menu>
+        
+        <!--
+        first create a top level menu item which will appear alongside CMS
+        -->
+        <transycons_syncdirectory translate="title"
+                module="transycons_syncdirectory">
+            <title>Sincronizare ID</title>
+            <sort_order>999</sort_order>
+            <depends>
+                <module>Transycons_SyncDirectory</module>
+            </depends>
+            
+            <!-- under this top level menu create a child menu item -->
+            <children>
+                <sync translate="title"
+                        module="transycons_syncdirectory">
+                    <title>Manage IDs</title>
+                    <sort_order>10</sort_order>
+                    
+                    <!-- 
+                    when the menu is clicked, take the user here 
+                    -->
+                 <action>transycons_syncdirectory_admin/sync</action>
+
+                </sync>
+            </children>
+        </transycons_syncdirectory>
+    </menu>
+    
+    <!-- define ACL for access to these menu items -->
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <transycons_syncdirectory translate="title"
+                            module="transycons_syncdirectory">
+                        <title>Sincronizare ID</title>
+                        <sort_order>999</sort_order>
+                        <children>
+                            <sync translate="title"
+                                    module="transycons_syncdirectory">
+                                <title>Manage IDs</title>
+                            </sync>
+                        </children>
+                    </transycons_syncdirectory>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

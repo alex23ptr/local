@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <AP_customSlider>
+            <version>0.1.0</version>    <!-- Version number of your module test -->
+        </AP_customSlider>
+    </modules>
+	
+    <frontend>
+        <routers>
+            <customslider>
+                <use>standard</use>
+                <args>
+                    <module>AP_customSlider</module>
+                    <frontName>ap_slider</frontName>
+                </args>
+            </customslider>
+        </routers>
+    </frontend>
+</config>

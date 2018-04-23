@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <AP_customSlider>
+        <active>true</active>
+        <codePool>local</codePool>
+        </AP_customSlider>
+    </modules>
+</config>
