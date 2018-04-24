@@ -1,0 +1,16 @@
+<h1><?php echo $this->__('Banner Directory Example'); ?></h1>
+
+<?php $bannerCollection = $this->getBannersCollection();   ?>
+<?php if ($bannerCollection): ?>
+    
+    <ul>
+        <?php foreach ($bannerCollection as $_banner): ?>    
+            <li><a href="<?php echo $this->helper('ap_modbanners/banner')->getBannerUrl($_banner); ?>" title="<?php echo $this->escapeHtml($_banner->getTitle()); ?>"><?php echo $_banner->getTitle(); ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+    
+<?php else: ?>
+    
+    <?php echo $this->__('There are no banners to display at this time.'); ?>
+    
+<?php endif; ?>

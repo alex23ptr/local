@@ -45,20 +45,20 @@ class AP_ModBanners_Block_Adminhtml_Banner_Grid
         
         $this->addColumn('title', array(
             'header' => $this->_getHelper()->__('Title'),
-            'type' => 'number',
+            'type' => 'text',
             'index' => 'title',
         ));
 
       
          $this->addColumn('start_date', array(
             'header' => $this->_getHelper()->__('Start date'),
-            'type' => 'text',
+            'type' => 'date',
             'index' => 'start_date',
         ));
         
         $this->addColumn('end_date', array(
             'header' => $this->_getHelper()->__('End date'),
-            'type' => 'number',
+            'type' => 'date',
             'index' => 'end_date',
         ));
         

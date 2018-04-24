@@ -1,0 +1,12 @@
+<?php $banner = $this->getCurrentBanner(); var_dump($banner); die(); ?>
+<?php if ($banner): ?>
+    
+    <h1><?php echo $banner->getTitle(); ?></h1>
+    <p><a href="<?php echo $this->helper('ap_modbanners/banner')->getBannerUrl($banner); ?>" title="<?php echo $this->escapeHtml($brand->getName()); ?>"><?php echo $brand->getName(); ?></a></p>
+    <?php echo $banner->getDescription(); ?>
+    <p><a href="<?php echo $this->getUrl('ap_modbanners/index/index') ?>" title="<?php echo $this->__('Back to banner Directory'); ?>"><?php echo $this->__('&laquo; Back to Brand Directory'); ?></a></p>
+    
+     
+    
+    
+<?php endif; ?>

@@ -7,63 +7,76 @@
     </modules>
 	
     <frontend>
+		<layout>
+            <updates>
+                <ap_modbanners>
+                    <file>ap_modbanners.xml</file>
+                </ap_modbanners>
+            </updates>
+        </layout>
         <routers>
-            <modBanners>
+            <ap_modbanners>
                 <use>standard</use>
                 <args>
                     <module>AP_ModBanners</module>
                     <frontName>banners</frontName>
                 </args>
-            </modBanners>
+            </ap_modbanners>
         </routers>
     </frontend>
 	
-	<global>
-        
-        <!-- 
-        add an adminhtml block definition 
-        -->
+	<global>      
+       
         <blocks>
             <ap_modbanners_adminhtml>
                <class>AP_ModBanners_Block_Adminhtml</class>
             </ap_modbanners_adminhtml>
-        </blocks>
-        
-        <!-- 
-        add a helper definition for use in adminhtml.xml menu translation 
-        -->
+			<ap_modbanners>
+               <class>AP_ModBanners_Block</class>
+            </ap_modbanners>
+        </blocks>        
+       
         <helpers>
             <ap_modbanners>
                 <class>AP_ModBanners_Helper</class>
             </ap_modbanners>
         </helpers>
-        
-     
-        
+        <models>   
+            <ap_modbanners>               
+                <class>AP_ModBanners_Model</class>
+				<resourceModel>ap_modbanners_resource</resourceModel>                
+            </ap_modbanners>          
+            <ap_modbanners_resource>               
+                <class>AP_ModBanners_Model_Resource</class>                
+                <entities>  
+                    <banner>
+                        <table>ap_modbanners_banner</table>                        
+                    </banner>                    
+                </entities>                
+            </ap_modbanners_resource>            
+        </models>		
+		<resources>           
+            <ap_modbanners_setup>                
+                <setup>
+                    <module>AP_ModBanners</module>                    
+                    <class>Mage_Core_Model_Resource_Setup</class>                    
+                </setup>               
+                <connection>
+                    <use>core_setup</use>
+                </connection>                
+            </ap_modbanners_setup>            
+        </resources> 
     </global>
 	
 	<admin>
-        <routers>            
-            <!-- this is the alias for this router -->
-            <ap_modbanners_admin>                
-                <!-- 
-                basically inform Magento to use
-                admin scope for requests to this router 
-                -->
+        <routers>     
+            <ap_modbanners_admin>  
                 <use>admin</use>                
                 <args>
-                    <!--
-                    this tells Magento where to find 
-                    adminhtml controllers for this module 
-                    -->
-                   <module>AP_ModBanners_Adminhtml</module>
-                    
-                    <!-- this is the term used in the actual URL -->
-                    <frontName>modbanners-admin</frontName>
-                </args>
-                
-            </ap_modbanners_admin>
-            
+                   <module>AP_ModBanners_Adminhtml</module>  
+                   <frontName>modbanners-admin</frontName>
+                </args>                
+            </ap_modbanners_admin>            
         </routers>
     </admin>
 </config>

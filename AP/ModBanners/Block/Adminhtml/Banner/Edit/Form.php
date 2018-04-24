@@ -42,28 +42,54 @@ class AP_modBanners_Block_Adminhtml_Banner_Edit_Form
                 'input' => 'text',
                 'required' => true,
             ),
+			
              'description' => array(
                 'label' => $this->__('Description'),
-                'input' => 'text',
+                'input' => 'textarea',
                 'required' => false,
             ),
-            'start_date' => array(
+			
+              
+            /*
+			'start_date' => array(
                 'label' => $this->__('Start date'),
                 'input' => 'text',
                 'required' => false,
             ),
-            'end_date' => array(
+			'end_date' => array(
                 'label' => $this->__('End date'),
                 'input' => 'text',
                 'required' => false,
-            ),
+            ), */
 
             
-            /**
-             * Note: we have not included created_at or updated_at,
-             * we will handle those fields ourself in the Model before save.
-             */
+            
         ));
+		$fieldset->addField('photo', 'image', array(
+		'label'     => "image",
+		'required'  => false,
+		'name'      => 'image',
+		));
+				
+		// $dateFormatIso = Mage::app()->getLocale()->getDateTimeFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
+		$fieldset->addField('start_date', 'date', array(
+		  'name'   => 'bannerData[start_date]',
+		  'label'  => $this->__('Start Date'),
+		  'title'  => $this->__('Start Date'),
+		  'image'  => $this->getSkinUrl('images/grid-cal.gif'),
+		  'input_format' => 'yyyy-M-d H:mm:ss',
+		  'format'       => 'yyyy-M-d H:mm:ss',//$dateFormatIso,
+		  'time' => true
+		));
+		$fieldset->addField('end_date', 'date', array(
+		  'name'   => 'bannerData[end_date]',
+		  'label'  => $this->__('End Date'),
+		  'title'  => $this->__('End Date'),
+		  'image'  => $this->getSkinUrl('images/grid-cal.gif'),
+		  'input_format' => 'yyyy-M-d H:mm:ss',
+		  'format'       => 'yyyy-M-d H:mm:ss',//$dateFormatIso,
+		  'time' => true
+		));
 
         return $this;
     }

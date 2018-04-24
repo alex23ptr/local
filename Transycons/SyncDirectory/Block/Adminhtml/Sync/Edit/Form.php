@@ -15,6 +15,7 @@ class Transycons_SyncDirectory_Block_Adminhtml_Sync_Edit_Form
                 )
             ),
             'method' => 'post',
+			'enctype' => 'multipart/form-data'//files
         ));
         $form->setUseContainer(true);
         $this->setForm($form);
@@ -64,6 +65,12 @@ class Transycons_SyncDirectory_Block_Adminhtml_Sync_Edit_Form
              * we will handle those fields ourself in the Model before save.
              */
         ));
+		
+		$fieldset->addField('fileinputname', 'file', array(
+          'label'     => Mage::helper('pictos')->__('File label'),
+          'required'  => false,
+          'name'      => 'fileinputname',
+		));
 
         return $this;
     }
