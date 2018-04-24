@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <AP_ModBanners>
+            <version>0.1.0</version>    
+        </AP_ModBanners>
+    </modules>
+	
+    <frontend>
+        <routers>
+            <modBanners>
+                <use>standard</use>
+                <args>
+                    <module>AP_ModBanners</module>
+                    <frontName>banners</frontName>
+                </args>
+            </modBanners>
+        </routers>
+    </frontend>
+	
+	<global>
+        
+        <!-- 
+        add an adminhtml block definition 
+        -->
+        <blocks>
+            <ap_modbanners_adminhtml>
+               <class>AP_ModBanners_Block_Adminhtml</class>
+            </ap_modbanners_adminhtml>
+        </blocks>
+        
+        <!-- 
+        add a helper definition for use in adminhtml.xml menu translation 
+        -->
+        <helpers>
+            <ap_modbanners>
+                <class>AP_ModBanners_Helper</class>
+            </ap_modbanners>
+        </helpers>
+        
+     
+        
+    </global>
+	
+	<admin>
+        <routers>            
+            <!-- this is the alias for this router -->
+            <ap_modbanners_admin>                
+                <!-- 
+                basically inform Magento to use
+                admin scope for requests to this router 
+                -->
+                <use>admin</use>                
+                <args>
+                    <!--
+                    this tells Magento where to find 
+                    adminhtml controllers for this module 
+                    -->
+                   <module>AP_ModBanners_Adminhtml</module>
+                    
+                    <!-- this is the term used in the actual URL -->
+                    <frontName>modbanners-admin</frontName>
+                </args>
+                
+            </ap_modbanners_admin>
+            
+        </routers>
+    </admin>
+</config>

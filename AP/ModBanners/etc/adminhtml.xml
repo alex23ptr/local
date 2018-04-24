@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config>
+        <menu>
+            <catalog>
+                    <children>
+                            <ap_modbanners translate="title" module="ap_modbanners">
+                                    <title>Banners</title>
+                                    <sort_order>998</sort_order>
+									
+									<depends>
+										<module>AP_ModBanners</module>
+									</depends>
+									
+                                    <children>
+										<banner translate="title" module="ap_modbanners">
+											<title>Manage banners</title>
+											<sort_order>10</sort_order>	
+											<action>ap_modbanners_admin/banner</action>
+										</banner>
+									</children> 
+									
+                            </ap_modbanners>
+                    </children>
+            </catalog>
+    </menu>
+ 
+    
+	
+	<acl> 
+		<resources> 
+			<admin> 
+				<children> 
+					<catalog> 
+						<children> 
+							<ap_modbanners>
+							<title>Manage banners</title>
+							<sort_order>10</sort_order> 
+							</ap_modbanners> 
+						</children> 
+					</catalog>
+				</children>
+			</admin> 
+		</resources> 
+	</acl>
+</config>
+
+
