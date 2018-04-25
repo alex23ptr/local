@@ -7,12 +7,15 @@
         </reference>
     </ap_modbanners_index_index>
     
-    <ap_modbanners_index_view>
+    <ap_modbanners_index_view>	     
         <reference name="content">
             <block type="ap_modbanners/view" name="ap.modbanners.view" template="ap_modbanners/view.phtml" />
-        </reference>
-    </ap_modbanners_index_view>
+        </reference>		
+    </ap_modbanners_index_view>  
     
-    
-    
+    <cms_index_index translate="label">
+		<reference name="content">
+			<block type="ap_modbanners/list" after="-" name="ap.modbanners.list" template="ap_modbanners/home_banners.phtml"/>     
+		</reference>
+	</cms_index_index>
 </layout>

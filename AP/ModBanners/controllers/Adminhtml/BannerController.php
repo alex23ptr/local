@@ -45,6 +45,29 @@ class AP_ModBanners_Adminhtml_BannerController
         
         // process $_POST data if the form was submitted
         if ($postData = $this->getRequest()->getPost('bannerData')) {
+			//var_dump($_FILES['bannerData']); die();
+			if(isset($_FILES['bannerData']['name']['image_path']) && (file_exists($_FILES['bannerData']['tmp_name']['image_path']))) { echo "###"; die();
+			  try {
+				$uploader = new Varien_File_Uploader('image_path');
+				$uploader->setAllowedExtensions(array('jpg','jpeg','gif','png')); // or pdf or anything
+			  
+			  
+				$uploader->setAllowRenameFiles(false);
+			  
+				// setAllowRenameFiles(true) -> move your file in a folder the magento way
+				// setAllowRenameFiles(true) -> move your file directly in the $path folder
+				$uploader->setFilesDispersion(false);
+				
+				$path = Mage::getBaseDir('media') . DS ;
+							
+				$uploader->save($path, $_FILES['bannerData']['name']['image_path']);
+			  
+				$postData['image_path'] = $_FILES['bannerData']['name']['image_path'];
+			  }catch(Exception $e) {
+			  
+			  }
+			}
+			
             try {
                 $banner->addData($postData);
                 $banner->save();
@@ -116,6 +139,8 @@ class AP_ModBanners_Adminhtml_BannerController
             'ap_modbanners_admin/banner/index'
         );
     }
+	
+	 
     
      
     protected function _isAllowed()

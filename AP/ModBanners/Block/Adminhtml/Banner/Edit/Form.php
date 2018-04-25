@@ -15,6 +15,7 @@ class AP_modBanners_Block_Adminhtml_Banner_Edit_Form
                 )
             ),
             'method' => 'post',
+			'enctype' => 'multipart/form-data'
         ));
         $form->setUseContainer(true);
         $this->setForm($form);
@@ -39,8 +40,9 @@ class AP_modBanners_Block_Adminhtml_Banner_Edit_Form
             ),
             'image_path' => array(
                 'label' => $this->__('Image'),
-                'input' => 'text',
+                'input' => 'image',
                 'required' => true,
+				'note' => '(*.jpg, *.png, *.gif)',
             ),
 			
              'description' => array(
@@ -65,12 +67,8 @@ class AP_modBanners_Block_Adminhtml_Banner_Edit_Form
             
             
         ));
-		$fieldset->addField('photo', 'image', array(
-		'label'     => "image",
-		'required'  => false,
-		'name'      => 'image',
-		));
-				
+		 
+		 			
 		// $dateFormatIso = Mage::app()->getLocale()->getDateTimeFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
 		$fieldset->addField('start_date', 'date', array(
 		  'name'   => 'bannerData[start_date]',
