@@ -49,7 +49,8 @@ class AP_ModBanners_Block_Adminhtml_Banner_Grid
             'index' => 'title',
         ));
 
-      
+       
+		
          $this->addColumn('start_date', array(
             'header' => $this->_getHelper()->__('Start date'),
             'type' => 'date',

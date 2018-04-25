@@ -45,11 +45,22 @@ class AP_ModBanners_Adminhtml_BannerController
         
         // process $_POST data if the form was submitted
         if ($postData = $this->getRequest()->getPost('bannerData')) {
-			//var_dump($_FILES['bannerData']); die();
-			if(isset($_FILES['bannerData']['name']['image_path']) && (file_exists($_FILES['bannerData']['tmp_name']['image_path']))) { echo "###"; die();
-			  try {
-				$uploader = new Varien_File_Uploader('image_path');
-				$uploader->setAllowedExtensions(array('jpg','jpeg','gif','png')); // or pdf or anything
+			
+			if(isset($_FILES['bannerData']['name']['image_path']) && file_exists($_FILES['bannerData']['tmp_name']['image_path'])) {
+				
+			  $_FILES['image']['name'] = $_FILES['bannerData']['name']['image_path'] ;
+			  $_FILES['image']['type'] = $_FILES['bannerData']['type']['image_path'] ;
+			  $_FILES['image']['tmp_name'] = $_FILES['bannerData']['tmp_name']['image_path'] ;
+			  $_FILES['image']['error'] = $_FILES['bannerData']['error']['image_path'] ;
+			  $_FILES['image']['size'] = $_FILES['bannerData']['size']['image_path'] ;
+			  unset($_FILES['bannerData']);
+			}
+			 
+			if(isset($_FILES['image']['name']) && file_exists($_FILES['image']['tmp_name'])) {				
+			 
+			  try { 
+				$uploader = new Varien_File_Uploader('image'); 
+				$uploader->setAllowedExtensions(array('jpg','jpeg','bmp','png')); // or pdf or anything
 			  
 			  
 				$uploader->setAllowRenameFiles(false);
@@ -60,14 +71,23 @@ class AP_ModBanners_Adminhtml_BannerController
 				
 				$path = Mage::getBaseDir('media') . DS ;
 							
-				$uploader->save($path, $_FILES['bannerData']['name']['image_path']);
-			  
-				$postData['image_path'] = $_FILES['bannerData']['name']['image_path'];
+				$uploader->save($path, $_FILES['image']['name']);			  
+				$postData['image_path'] = $_FILES['image']['name']; 
+				   
 			  }catch(Exception $e) {
-			  
+			   //echo $e->getMessage();
+			    Mage::logException($e);
+                $this->_getSession()->addError($e->getMessage());
 			  }
-			}
-			
+			  
+			} else {      
+  
+				if(isset($postData['bannerData']['image_path']['delete']) && $postData['bannerData']['image_path']['delete'] == 1)
+					$postData['image_path'] = '';
+				else
+					unset($postData['image_path']);
+			} 
+			 
             try {
                 $banner->addData($postData);
                 $banner->save();

@@ -42,7 +42,7 @@ class AP_modBanners_Block_Adminhtml_Banner_Edit_Form
                 'label' => $this->__('Image'),
                 'input' => 'image',
                 'required' => true,
-				'note' => '(*.jpg, *.png, *.gif)',
+				'note' => '(*.jpg, *.png, *.bmp, *.jpeg)',
             ),
 			
              'description' => array(

@@ -16,5 +16,12 @@
                 </args>
             </customslider>
         </routers>
+		<layout>
+			<updates>
+				<customslider>
+					<file>customslider.xml</file>
+				</customslider>
+			</updates>
+		</layout>
     </frontend>
 </config>

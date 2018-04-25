@@ -6,6 +6,7 @@ class AP_ModBanners_IndexController extends Mage_Core_Controller_Front_Action
 		
 		$this->loadLayout();
 		$this->getLayout()->getBlock("head")->setTitle($this->__("Banners page"));
+		
 	    $breadcrumbs = $this->getLayout()->getBlock("breadcrumbs");
 		$breadcrumbs->addCrumb("home", array(
 					"label" => $this->__("Home Page"),

@@ -6,6 +6,7 @@
     <ul>
         <?php foreach ($bannerCollection as $_banner): ?>    
             <li>
+			     
 				<a href="<?php echo $this->helper('ap_modbanners/banner')->getBannerUrl($_banner); ?>" title="<?php echo $this->escapeHtml($_banner->getTitle()); ?>"><?php echo $_banner->getTitle(); ?></a>
 			</li>
         <?php endforeach; ?>

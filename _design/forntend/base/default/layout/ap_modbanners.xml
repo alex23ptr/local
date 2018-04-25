@@ -14,6 +14,10 @@
     </ap_modbanners_index_view>  
     
     <cms_index_index translate="label">
+		<reference name="head">		
+            <action method="addJs"><script>bxslider/jquery.bxslider.min.js</script></action>
+			<action method="addCss"><stylesheet>bxslider/jquery.bxslider.min.css</stylesheet></action>  
+        </reference>
 		<reference name="content">
 			<block type="ap_modbanners/list" after="-" name="ap.modbanners.list" template="ap_modbanners/home_banners.phtml"/>     
 		</reference>

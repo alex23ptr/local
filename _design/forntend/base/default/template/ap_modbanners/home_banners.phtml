@@ -1,18 +1,31 @@
-<h1><?php echo $this->__('Home Banners'); ?></h1>
-
+ 
 <?php $bannerCollection = $this->getBannersCollection();   ?>
 <?php if ($bannerCollection): ?>
     
-    <ul>
+    <ul id="banner-slider"  >
         <?php foreach ($bannerCollection as $_banner): ?>    
             <li>
-				<a href="<?php echo $this->helper('ap_modbanners/banner')->getBannerUrl($_banner); ?>" title="<?php echo $this->escapeHtml($_banner->getTitle()); ?>"><?php echo $_banner->getTitle(); ?></a>
+				<a href="<?php echo $this->helper('ap_modbanners/banner')->getBannerUrl($_banner); ?>" title="<?php echo $this->escapeHtml($_banner->getTitle()); ?>">
+					<img style="height:400px ;	" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$_banner->getImage_path(); ?>" title="<?php echo $_banner->getTitle(); ?>" />
+				</a>
 			</li>
         <?php endforeach; ?>
     </ul>
+	 
     
 <?php else: ?>
     
     <?php echo $this->__('There are no banners to display at this time.'); ?>
     
 <?php endif; ?>
+
+<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.14/jquery.bxslider.min.css" media="all" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.14/jquery.bxslider.min.js"></script> -->
+
+ <script>
+    jQuery('#banner-slider').bxSlider({
+	   mode: 'fade',
+	   captions: true,
+	   auto : true
+	  }	);
+</script>
