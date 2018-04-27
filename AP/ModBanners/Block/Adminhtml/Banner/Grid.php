@@ -4,9 +4,7 @@ class AP_ModBanners_Block_Adminhtml_Banner_Grid
 {
     protected function _prepareCollection()
     {
-        /**
-         * Tell Magento which Collection to use for displaying in the grid.
-         */
+        
         $collection = Mage::getResourceModel(
             'ap_modbanners/banner_collection'
         );
@@ -17,11 +15,7 @@ class AP_ModBanners_Block_Adminhtml_Banner_Grid
     
     public function getRowUrl($row)
     {
-        /**
-         * When a grid row is clicked, this is where the user should
-         * be redirected to. In our example, the method editAction of 
-         * bannerController.php in bannerDirectory module.
-         */
+         
         return $this->getUrl(
             'ap_modbanners_admin/banner/edit',
             array(

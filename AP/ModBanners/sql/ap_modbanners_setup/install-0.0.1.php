@@ -64,9 +64,7 @@ $table->addColumn(
 
 
 
-/**
- * A couple of important lines that are often missed.
- */
+ 
 $table->setOption('type', 'InnoDB');
 $table->setOption('charset', 'utf8');
 

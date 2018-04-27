@@ -20,7 +20,7 @@ class AP_modBanners_Block_Adminhtml_Banner_Edit_Form
         $form->setUseContainer(true);
         $this->setForm($form);
         
-        // define a new fieldset, we only need one for our simple entity
+         
         $fieldset = $form->addFieldset(
             'general',
             array(
@@ -92,13 +92,7 @@ class AP_modBanners_Block_Adminhtml_Banner_Edit_Form
         return $this;
     }
     
-    /**
-     * This method makes life a little easier for us by pre-populating 
-     * fields with $_POST data where applicable and wraps our post data in 
-     * 'bannerData' so we can easily separate all relevant information in
-     * the controller. You can of course omit this method entirely and call
-     * the $fieldset->addField() method directly.
-     */
+    
     protected function _addFieldsToFieldset(
         Varien_Data_Form_Element_Fieldset $fieldset, $fields)
     {
@@ -132,10 +126,10 @@ class AP_modBanners_Block_Adminhtml_Banner_Edit_Form
     protected function _getBanner()
     {
         if (!$this->hasData('banner')) {
-            // this will have been set in the controller
+             
             $banner = Mage::registry('current_banner');
             
-            // just in case the controller does not register the banne
+           
             if (!$banner instanceof
                     AP_ModBanners_Model_Banner) {
                 $banner = Mage::getModel(

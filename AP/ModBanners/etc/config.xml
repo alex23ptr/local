@@ -25,7 +25,7 @@
         </routers>
     </frontend>
 	
-	<global>      
+	<global>     
        
         <blocks>
             <ap_modbanners_adminhtml>

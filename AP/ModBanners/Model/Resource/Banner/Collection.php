@@ -6,11 +6,7 @@ class AP_ModBanners_Model_Resource_Banner_Collection
     {
         parent::_construct();
         
-        /**
-         * Tell Magento the Model and Resource Model to use for this 
-         * Collection. Since both aliases are the same we can ommit
-         * the second paramater if we wished.
-         */
+        
         $this->_init(
             'ap_modbanners/banner',
             'ap_modbanners/banner'
